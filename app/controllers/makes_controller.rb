@@ -56,7 +56,7 @@ class MakesController < ApplicationController
   def destroy
     @make.destroy
     respond_to do |format|
-      format.html { redirect_to makes_url, notice: 'Make was successfully destroyed.' }
+      format.html { redirect_to makes_url, notice: 'Make was successfully trashed.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +69,6 @@ class MakesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def make_params
-      params.require(:make).permit(:name, :country)
+      params.require(:make).permit(:name, :country, :car_ids => [])
     end
 end

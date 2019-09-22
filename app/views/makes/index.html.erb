@@ -16,9 +16,9 @@
       <tr>
         <td><%= make.name %></td>
         <td><%= make.country %></td>
-        <td><%= link_to 'Show', make %></td>
+        <td><%= link_to 'View More', make %></td>
         <td><%= link_to 'Edit', edit_make_path(make) %></td>
-        <td><%= link_to 'Destroy', make, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Trash', make, method: :delete, data: { confirm: 'Are you sure? Will delete any cars with this make' } %></td>
       </tr>
     <% end %>
   </tbody>

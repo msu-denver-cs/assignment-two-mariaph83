@@ -12,12 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.label 'Name:' %>
+    <%= form.text_field :name, :required => true %>
   </div>
 
   <div class="field">
-    <%= form.label :country %>
+    <%= form.label 'Country:' %>
     <%= form.text_field :country %>
   </div>
 

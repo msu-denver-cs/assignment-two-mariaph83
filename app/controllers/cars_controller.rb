@@ -15,10 +15,14 @@ class CarsController < ApplicationController
   # GET /cars/new
   def new
     @car = Car.new
+    @parts = Part.all
+    @makes = Make.all
   end
 
   # GET /cars/1/edit
   def edit
+    @parts = Part.all
+    @makes = Make.all
   end
 
   # POST /cars
@@ -56,7 +60,7 @@ class CarsController < ApplicationController
   def destroy
     @car.destroy
     respond_to do |format|
-      format.html { redirect_to cars_url, notice: 'Car was successfully destroyed.' }
+      format.html { redirect_to cars_url, notice: 'Car was successfully burned.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +73,6 @@ class CarsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def car_params
-      params.require(:car).permit(:name, :model, :vin, :make_id, part_ids: [])
+      params.require(:car).permit(:name, :model, :vin, :make_id, :part_ids => [])
     end
 end

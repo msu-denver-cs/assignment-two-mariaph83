@@ -1,14 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @part.name %>
-</p>
+<h2><%= @part.name %></h2>
 
 <p>
   <strong>Count:</strong>
   <%= @part.count %>
 </p>
+<% if @part.cars.length != 0 %>
+  <strong>As seen in:</strong>
+  <% else %>
+  <p><%= link_to 'Create a car', new_car_path %> to use <%= @part.name %> with</p>
+<% end %>
+<% @part.cars.each do |car|%>
+    <ul>
+      <li><%= link_to car.name, car %></li>
+    </ul>
+<% end %>
 
 <%= link_to 'Edit', edit_part_path(@part) %> |
-<%= link_to 'Back', parts_path %>
+<%= link_to 'View All Parts', parts_path %>

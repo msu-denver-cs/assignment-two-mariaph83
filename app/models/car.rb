@@ -1,6 +1,6 @@
 class Car < ApplicationRecord
   belongs_to :make
-  belongs_to :factory
-  has_many :parts, through: :factory
+  has_many :factories
+  has_many :parts, :through => :factories, dependent: :destroy
 
 end

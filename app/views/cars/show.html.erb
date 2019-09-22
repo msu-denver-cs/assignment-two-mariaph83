@@ -1,8 +1,10 @@
 <p id="notice"><%= notice %></p>
 
+<h2><%= @car.name %></h2>
+
 <p>
-  <strong>Name:</strong>
-  <%= @car.name %>
+  <strong>Make:</strong>
+  <%= link_to @car.make.name, @car.make %>
 </p>
 
 <p>
@@ -14,6 +16,16 @@
   <strong>Vin:</strong>
   <%= @car.vin %>
 </p>
+<% if @car.parts.length != 0 %>
+  <strong>Includes:</strong>
+  <% else %>
+  <p><%= link_to 'Create parts', new_part_path %> to add to <%= @car.name %></p>
+<% end %>
+<% @car.parts.each do |part|%>
+    <ul>
+      <li><%= link_to part.name, part %></li>
+    </ul>
+<% end %>
 
 <%= link_to 'Edit', edit_car_path(@car) %> |
-<%= link_to 'Back', cars_path %>
+<%= link_to 'View All Cars', cars_path %>

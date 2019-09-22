@@ -8,6 +8,13 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  <%= link_to 'Home', root_path %>
+  <%= link_to 'Makes', makes_path %>
+  <%= link_to 'Parts', parts_path %>
+  <%= link_to 'Cars', cars_path %>
+  <%= link_to 'New Make', new_make_path %>
+  <%= link_to 'New Part', new_part_path %>
+  <%= link_to 'New Car', new_car_path %>
 
   <body>
     <%= yield %>

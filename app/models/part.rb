@@ -1,4 +1,4 @@
 class Part < ApplicationRecord
-  belongs_to :factory
-  has_many :cars, :through => :factory
+  has_many :factories
+  has_many :cars, :through => :factories, dependent: :destroy
 end

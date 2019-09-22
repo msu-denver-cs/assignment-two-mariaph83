@@ -1,14 +1,19 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @make.name %>
-</p>
-
+<h2><%= @make.name %></h2>
 <p>
   <strong>Country:</strong>
   <%= @make.country %>
 </p>
+<% if @make.cars.length != 0 %>
+  <strong>Cars used for:</strong>
+  <% else %>
+  <p><%= link_to 'Create a car', new_car_path %> with <%= @make.name %></p>
+<% end %>
+<% @make.cars.each do |car|%>
+    <ul>
+      <li><%= link_to car.name, car %></li>
+    </ul>
+<% end %>
 
 <%= link_to 'Edit', edit_make_path(@make) %> |
-<%= link_to 'Back', makes_path %>
+<%= link_to 'View All Makes', makes_path %>
