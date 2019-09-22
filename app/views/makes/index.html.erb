@@ -2,6 +2,7 @@
 
 <h1>Makes</h1>
 
+<% if @makes.length != 0 %>
 <table>
   <thead>
     <tr>
@@ -23,7 +24,6 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
+<% end %>
 
 <%= link_to 'New Make', new_make_path %>

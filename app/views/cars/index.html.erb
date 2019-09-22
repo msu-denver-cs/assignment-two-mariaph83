@@ -2,6 +2,7 @@
 
 <h1>Cars</h1>
 
+<% if @cars.length != 0 %>
 <table>
   <thead>
     <tr>
@@ -27,7 +28,6 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
+<% end %>
 
 <%= link_to 'New Car', new_car_path %>
