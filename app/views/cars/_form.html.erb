@@ -10,9 +10,6 @@
       </ul>
     </div>
   <% end %>
-  <% if @makes.length == 0 %>
-    <strong>You will need to create a <%= link_to 'make', new_make_path %> first</strong>
-  <% else %>
 
   <div class="field">
     <%= form.label 'Name your car:'%>
@@ -33,17 +30,18 @@
     <%= form.label 'Enter your vin:' %>
     <%= form.number_field :vin, :required => true %>
   </div>
-    <% if @parts.length != 0 %>
-      <div class="field">
-        <%= form.label 'Choose your car parts:' %>
-        <%= form.collection_check_boxes( :part_ids, @parts, :id, :name) %>
-      </div>
-      <% else %>
-      <p>Create some <%= link_to 'parts', new_part_path %> for your car</p>
-    <% end %>
+
+  <% if @parts.length != 0 %>
+    <div class="field">
+      <%= form.label 'Choose your car parts:' %>
+      <%= form.collection_check_boxes( :part_ids, @parts, :id, :name) %>
+    </div>
+  <% else %>
+    <p>Create some <%= link_to 'parts', new_part_path %> for your car</p>
+  <% end %>
 
   <div class="actions">
     <%= form.submit %>
   </div>
-  <% end %>
+  
 <% end %>

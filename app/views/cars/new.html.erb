@@ -1,5 +1,9 @@
 <h1>New Car</h1>
 
-<%= render 'form', car: @car %>
+<% if @makes.length == 0 %>
+    <strong>You will need to create a <%= link_to 'make', new_make_path %> first</strong>
+<% else %>
+    <%= render 'form', car: @car %>
+<%end%>
 
 <%= link_to '<< Cars', cars_path %>
