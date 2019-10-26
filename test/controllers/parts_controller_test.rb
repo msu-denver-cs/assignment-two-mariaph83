@@ -45,4 +45,16 @@ class PartsControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to parts_url
   end
+  test "shouldn't find a missing car" do
+      assert Car.where("name like ?", "boop").length == 0
+  end
+
+  test "should find car from the fixture" do
+      assert Car.where("name like ?", "huh").length == 2
+  end
+
+  test "searches always return 200" do
+      get search_cars_url, params: { search: "Example" }
+      assert_equal 200, status
+  end
 end
